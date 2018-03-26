@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加地址</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
+		<style>
+        body{
+        	font-family: "微软雅黑";
+        }
+    </style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: #6CA6CD;font-family: '微软雅黑';">增加地址</h1>
+		</header>
+		<div class="mui-card" style="margin-top: 50px;">
+			 <div class="mui-card-header" >
+		    	<span class="mui-icon iconfont icon-beizhu" style="font-size:18px;">编辑我的地址</span>
+		    </div>	
+		    <div class="mui-card-content" style="color: #555555;font-size:16px;">
+            	<div class="mui-input-row">
+                	<label style="font-weight: bold;">所在省市：</label>
+                	<input id='showAddress' type="text" class="mui-input-clear mui-input" placeholder="选择省市区" readonly="readonly"></span>                	
+            	</div>
+            	<div class="mui-input-row">
+                	<label style="font-weight: bold;">详细地址：</label>
+                	<input id='address_d' type="text" class="mui-input-clear mui-input" placeholder="输入详细地址"></span>
+            	</div>	
+		    </div>		   
+		</div>
+    	<div class="mui-content-padded">
+			<button id='edit_inf' class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #37AEDF;border: none; height:50px;">					
+			   添加地址
+			</button>
+		</div>
+    	<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>		
+		<script src="js/popover.js"></script>
+		<script src="js/mui.picker.min.js"></script>
+		<script src="js/city.data-3.js"></script>
+		<script type="text/javascript">	
+            document.getElementById('showAddress').addEventListener('tap',function () {
+
+                var adressStr = '';
+                //显示几层，我们要显示省、市、区，所以我们这里写三层，如果不写默认是一层
+                var addressPicker=new mui.PopPicker({
+                    layer:3
+                });
+                
+                addressPicker.setData(cityData3);
+                //city.data-3.js中的数据
+
+                addressPicker.show(function(selectItems){
+                    //将选择的省、市、区显示到屏幕上
+                    for(var i=0;i<selectItems.length;i++){
+                        adressStr+=selectItems[i].text;
+                    }
+                    document.getElementById('showAddress').value = adressStr;
+                });
+            });
+			document.getElementById('edit_inf').addEventListener('tap', function() 
+			{
+			    var btnArray = ['否', '是'];
+			    mui.confirm('确认保存修改？', '添加新的地址', btnArray, function(e)
+			    {
+			        if (e.index == 1) 
+			        {
+			        	mui.alert("地址添加成功！","添加地址","确定", function() { 
+				        	mui.openWindow({
+							    url: 'address.html', 
+							    id:'address',
+							    extras:{
+							        name:'mui',
+							        version:'0.5.8'
+							    }
+							});	
+                       });
+			        } 
+			        else 
+			        {
+			            mui.toast('已取消修改');			            
+			        }
+			    })
+			});
+		</script>
+	</body>
+</html>

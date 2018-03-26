@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>上交押金</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<style>
+        body{
+        	font-family: "微软雅黑";
+        }
+        </style>
+	</head>
+	
+	<body id="phone">
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"style="color: #555555;"></a>
+			<h1 class="mui-title"><span class="mui-icon iconfont icon-yajin" style="font-size: 20px;font-family: '微软雅黑';">上交押金</span></h1>
+		</header>
+		    <div class="mui-card-header" style="font-size: 18px; margin-top: 50px;">
+		    	<span class="mui-icon iconfont icon-yue" style="color: #6D6D72;font-size: 20px;">押金数额</span>
+		    </div>	     
+				<div class="mui-card-content">
+	                <div class="mui-card" style="height: 60px;"> 
+	                	<p style="float: right; margin-right: 5%;font-size: 30px;line-height: 2;color: #EC971F;">￥500.00</p>
+	                </div>
+				</div>								
+			
+			<div class="mui-content-padded">
+				<button id="deposit" type="button" data-loading-text="提交审核中" class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #37AEDF;border: none; height:50px;">上交押金</button>
+			</div>
+		</div>    
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			mui(document.body).on('tap', '.mui-btn', function(e) {
+			    mui(this).button('loading');
+			    setTimeout(function() {
+			        mui(this).button('reset');
+			    }.bind(this), 2000);
+			});
+			
+			document.getElementById('deposit').addEventListener('tap', function() {
+			  mui.toast('审核成功');
+			  mui.openWindow({
+			  	
+			    url: 'login_runner.html', 
+			    id:'login_runner'
+			  });
+		    });
+		</script>
+	</body>
+</html>

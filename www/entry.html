@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			body{
+				background-color: #1ba6c6;
+			}			
+			.mui-content{
+				background-color: #1ba6c6;
+			}
+			.img_deliver{
+				margin-top: 25%;
+				margin-bottom: 10%;
+				width: 100%;
+				height: auto;
+				border: none;
+			}
+			.pro_name{
+				text-align: center;
+				margin-bottom: 5%;
+				background-color: #1ba6c6;
+				color:#FFFFFF;
+				font-family: "幼圆";
+				font-size: 28px;
+				letter-spacing:10px;
+			}
+			.pro_name2{
+				text-align: center;
+				margin-bottom: 10%;
+				background-color: #1ba6c6;
+				color: #f2f237;
+				font-size: 18px;
+				letter-spacing:5px;
+				font-family:"幼圆";
+			}
+		    #login_runner{
+		    	float: left;
+		    	width: 42%;
+		    	height: 45px;
+		    	text-align: center;
+		    	margin-left: 28%;
+		    	margin-bottom: 5%;
+		    	border-radius: 16px;
+		    	font-size: 18px;
+		    	letter-spacing:3px;
+		    	font-family: "微软雅黑";
+		    	color: #1ba6c6;	
+		    	background-color: #F0FFF3;	    
+		    	}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content-image">
+			<img class="img_deliver" src="images/runner.gif" ></img>
+		</div>
+		<div class="mui-content">
+			<p class="pro_name">同城跑腿配送</p>
+			<p class="pro_name2">碎片化时间能赚钱</p>
+		</div>
+		<div class="mui-content">
+			<button id='login_runner' class="mui-btn mui-btn-primary" style="border: none;">跑腿人登录</button>
+		</div>
+		<div class="mui-content" style="float: left;width: 50%;margin-left: 30%;margin-right: 20%; margin-top: 10%; color: #CCCCCC; font-family: '微软雅黑';font-size: 14px;">
+                              同城跑腿配送©跑腿人版
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			document.getElementById('login_runner').addEventListener('tap', function() {
+			    mui.openWindow({
+			    url: 'login_runner.html', 
+			    id:'login_runner'
+			  });
+			});		
+			mui.plusReady(function(){  
+            //首页返回键处理  
+            //处理逻辑：2秒内，连续两次按返回键，则退出应用  
+            var first = null;  
+            plus.key.addEventListener('backbutton', function(){  
+                //首次按键，提示‘再按一次退出应用’  
+                if(!first){  
+//                  first = new Date().getTime();  
+//                  mui.toast('再按一次退出应用');  
+//                  setTimeout(function(){  
+//                      first = null;  
+//                  },2000);
+                 plus.runtime.quit();
+                } else {  
+                    if(new Date().getTime() - first < 2000){  
+                        plus.runtime.quit();  
+                    }  
+                }  
+            }, false);  
+        });  
+        </script>  
+	</body>
+
+</html>

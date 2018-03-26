@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的消息</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<style>
+			body{
+				font-family: "微软雅黑";
+				color: #555555;
+			}
+			.spliter{
+				color: #FFFFFF;
+			}
+			.spliter2{
+				color: #6CA6CD;;
+			}
+		</style>
+	</head>
+	
+	<body>
+        <header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title"  style="color: #6CA6CD;font-family: '微软雅黑';">我的消息</h1>
+		</header>
+		    <div class="mui-content"></div>
+			<div class="mui-card" id="1">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete1">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle" id="info_food" style="height: 30px;line-height: 2;font-size: 16px;">
+				        <span class="mui-icon iconfont icon-icon--" style="margin-left: 5px;font-size: 16px;color:#555555;font-weight: bold;">您获得一个新的任务奖励</span>
+			        </div>
+		        </li>
+			</div>
+			
+			<div class="mui-card" id="2">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete2">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle" id="info_s" style="height: 30px;line-height: 2;font-size: 16px;">
+			            <span class="mui-icon iconfont icon-icon--" style="margin-left: 5px;font-size: 16px;color:#555555;font-weight: bold;">您有一个新评价</span>
+			        </div>
+		        </li>
+		    </div>
+		    
+		    <div class="mui-card" id="3">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete3">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle" id="info_big" style="height: 30px;line-height: 2;font-size: 16px;">
+			            <span class="mui-icon iconfont icon-icon--" style="margin-left: 5px;font-size: 16px;color:#555555;font-weight: bold;">您的奖励已到账，请注意查收</span>
+			        </div>
+		        </li>
+			</div>
+			
+			<div class="mui-card" id="4">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete4">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle" id="info_food2" style="height: 30px;line-height: 2;font-size: 16px;">   
+			            <span class="mui-icon iconfont icon-icon--" style="margin-left: 5px;font-size: 16px;color:#555555;font-weight: bold;">配送任务已完成</span>
+			        </div>
+		       </li>
+			</div>
+			
+			<div class="mui-card" id="5">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete5">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle" id="info_s2" style="height: 30px;line-height: 2;font-size: 16px;">  
+                        <span class="mui-icon iconfont icon-icon--" style="margin-left: 5px;font-size: 16px;color:#555555;font-weight: bold;">您已开始取件</span>
+			        </div>
+		        </li>
+		    </div>
+		    
+		    <div class="mui-card" id="6">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete6">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle" id="info_big2" style="height: 30px;line-height: 2;font-size: 16px;">
+			            <span class="mui-icon iconfont icon-icon--" style="margin-left: 5px;font-size: 16px;color:#555555;font-weight: bold;">您成功抢到一个新任务</span>
+			        </div>
+			   </li>
+			</div>
+		</div>
+	
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>       
+				
+			document.getElementById('delete1').addEventListener('tap', function() {
+			    var delete_div = document.getElementById("1");
+			    mui.alert('同城众包', '删除消息', function() {
+			       delete_div .classList.add("mui-hidden");	
+				   mui.toast("删除成功！");
+				})				    
+            })
+			document.getElementById('delete2').addEventListener('tap', function() {
+			    var delete_div = document.getElementById("2");
+		        mui.alert('同城众包', '删除消息', function() {
+			       delete_div .classList.add("mui-hidden");	
+				   mui.toast("删除成功！");
+				})						    
+            })
+			document.getElementById('delete3').addEventListener('tap', function() {
+			    var delete_div = document.getElementById("3");
+		        mui.alert('同城众包', '删除消息', function() {
+			       delete_div .classList.add("mui-hidden");	
+				   mui.toast("删除成功！");
+				})					    
+            })
+			document.getElementById('delete4').addEventListener('tap', function() {
+			    var delete_div = document.getElementById("4");
+		        mui.alert('同城众包', '删除消息', function() {
+			       delete_div .classList.add("mui-hidden");	
+				   mui.toast("删除成功！");
+				})						    
+            })
+			document.getElementById('delete5').addEventListener('tap', function() {
+			    var delete_div = document.getElementById("5");
+		        mui.alert('同城众包', '删除消息', function() {
+			       delete_div .classList.add("mui-hidden");	
+				   mui.toast("删除成功！");
+			 	})						    
+            })
+			document.getElementById('delete6').addEventListener('tap', function() {
+			    var delete_div = document.getElementById("6");
+		        mui.alert('同城众包', '删除消息', function() {
+			       delete_div .classList.add("mui-hidden");	
+				   mui.toast("删除成功！");
+			 	})						    
+            })
+	    </script>
+	</body>
+</html>

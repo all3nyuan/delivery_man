@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的信息</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<style>
+			body{
+				font-family: "微软雅黑";
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: #6CA6CD;font-family: '微软雅黑';">我的信息</h1>
+		</header>
+		<div class="mui-card" style="margin-top: 50px;">
+			 <div class="mui-card-header" style="font-size: 18px;">
+		    	个人信息
+		    </div>	
+		    <div class="mui-card-content" style="color: #555555;font-size: 16px;">
+		    	<ul class="mui-table-view">
+	                <li class="mui-table-view-cell"><span style="font-weight: bold;">姓  名：</span>跑腿人123456</li>
+	                <li class="mui-table-view-cell"><span style="font-weight: bold;">电  话：</span>18666666666</li>
+	                <li class="mui-table-view-cell"><span style="font-weight: bold;">审核类型：</span>身份证审核</li>	                
+	                <li class="mui-table-view-cell"><span style="font-weight: bold;">身份认证：</span>已认证</li>
+	           </ul>	    	
+		    </div>		   
+		</div>
+    	<div class="mui-content-padded">
+			<button id='edit_inf' class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #37AEDF;border: none; height:50px;">					
+			    <span class="mui-icon iconfont icon-beizhu" style="margin-right: 3px;"></span>编辑我的信息
+			</button>
+		</div>
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			document.getElementById('edit_inf').addEventListener('tap', function() {
+			  mui.openWindow({
+			    url: 'edit_inf.html', 
+			    id:'edit_inf'
+			  });
+			});
+		</script>
+	</body>
+</html>

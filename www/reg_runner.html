@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>跑腿人注册</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			.mui-input-group label {
+				width: 22%;
+			}
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			.mui-btn {
+				padding: 10px;
+			}
+			.mui-title{				
+				font-size: 20px;
+				font-family: "微软雅黑";
+				text-align: center;
+			}
+			input::-webkit-input-placeholder { 
+				color: #6CA6CD;				
+		        font-size: 18px;
+		        line-height: 1.4;
+		        font-family: "微软雅黑";
+		        text-align: left;
+            }
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav"style="background-color: #6CA6CD; color: #FFFFFF;height: 50px;padding-top: 5px;padding-bottom: 10px;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"style="color: #FFFFFF;"></a>
+			<h1 class="mui-title" style="color: #FFFFFF;"><span class="mui-icon mui-icon-contact" style="margin-right: 5px;"></span>跑腿人注册</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">			
+				<div class="mui-input-row" style="height: 50px;margin-left: 5%;">
+					<label><span class="mui-icon iconfont icon-zhanghao" style="color: #6CA6CD;font-size: 30px;"></span></label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号或手机号" style="font-size: 22px;margin-top: 8px;color: #555555;">					
+				</div>
+		   
+				<div class="mui-input-row" style="height: 50px;margin-left: 5%;">
+					<label><span class="mui-icon iconfont icon-mima" style="color: #6CA6CD;font-size: 30px;"></span></label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码" style="font-size: 22px;margin-top: 6px;color: #555555;">
+				</div>
+		    
+				<div class="mui-input-row" style="height: 50px;margin-left: 5%;">
+					<label><span class="mui-icon iconfont icon-mima" style="color: #6CA6CD;font-size: 30px;"></span></label>
+					<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="请确认密码" style="font-size: 22px;margin-top: 6px;color: #555555;">
+				</div>
+		  			
+				<div class="mui-input-row" style="height: 50px;margin-left: 5.5%;">
+					<label><span class="mui-icon iconfont icon-yanzhengma2" style="color: #6CA6CD;font-size: 28px;"></span></label>
+					<input id='email' type="email" class="mui-input-clear mui-input" placeholder="输入邮箱地址验证" style="float: left;width: 50%;font-size: 22px;margin-top: 6px;color: #555555;">
+					<a href="#" id="getcode" style="float: left; line-height: 3;color: #6CA6CD;font-weight: bold; text-decoration: underline;">获取验证码</a>
+				</div>
+		  
+				<div class="mui-input-row" style="height: 50px;margin-left: 5%;">
+					<label><span class="mui-icon iconfont icon-type1" style="color: #6CA6CD;font-size: 30px;"></span></label>
+					<input id='runner_type' type="text" class="mui-input-clear mui-input" placeholder="请选择审核方式" readonly="readonly" style="font-size: 22px;margin-top: 6px;color: #555555;">
+				</div>			    
+			</form>
+			<div class="mui-content-padded" style="font-family: '微软雅黑';">
+				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #6CA6CD;border: none;border-radius: 20px;width: 90%; margin-left: 5%;margin-right: 5%;">立即注册</button>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/mui.picker.min.js"></script>
+		<script type="text/javascript">	
+			mui.init()
+			document.getElementById("runner_type").addEventListener('tap', function() {
+				var picker = new mui.PopPicker();
+				picker.setData([{
+					value: 'shop',
+					text: '验证个人身份证'
+				},{
+					value: 'person',
+					text: '上交押金'
+				}]);
+				picker.show(function(SelectedItem) {
+					document.getElementById("runner_type").value= SelectedItem[0].text;				
+				});
+			}, false);
+
+			(function($, doc) {
+				$.init();
+				$.plusReady(function() {
+					var examineBox = doc.getElementById('runner_type');
+					var settings = app.getSettings();
+					var regButton = doc.getElementById('reg');
+					var getcode = doc.getElementById('getcode');
+					var accountBox = doc.getElementById('account');
+					var passwordBox = doc.getElementById('password');
+					var passwordConfirmBox = doc.getElementById('password_confirm');
+					var emailBox = doc.getElementById('email');
+					getcode.addEventListener('tap', function(event) {
+						if(emailBox.value == ''){
+							mui.toast('邮箱地址不能为空！');
+						}
+						else{
+							mui.toast('验证码已发送')
+						}
+					});
+					regButton.addEventListener('tap', function(event) {
+						var regInfo = {
+							account: accountBox.value,
+							password: passwordBox.value,
+							email: emailBox.value
+						};
+						var passwordConfirm = passwordConfirmBox.value;
+						if (passwordConfirm != regInfo.password) {
+							plus.nativeUI.toast('密码两次输入不一致');
+							return;
+						}
+						app.reg(regInfo, function(err) {
+							var examine = examineBox.value;
+							if (err) {
+								plus.nativeUI.toast(err);
+								return;
+							}
+							plus.nativeUI.toast('注册成功，完成审核激活账号');
+							/*
+							 * 注意：
+							 * 1、因本示例应用启动页就是登录页面，因此注册成功后，直接显示登录页即可；
+							 * 2、如果真实案例中，启动页不是登录页，则需修改，使用mui.openWindow打开真实的登录页面
+							 */	
+							if(examine == '验证个人身份证') {
+								mui.openWindow({
+									url: 'id.html',
+									id: 'id',
+									show: {
+										aniShow: 'pop-in'
+									}
+								});
+							}
+							else if(examine == '上交押金'){
+								mui.openWindow({
+									url: 'deposit.html',
+									id: 'deposit',
+									show: {
+										aniShow: 'pop-in'
+									}
+								});
+							}
+							else{
+								mui.toast('请选择审核方式！')
+							}
+						});
+					});
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>info_s</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+        <style type="text/css">
+
+			.nearsite-message{
+				display: inline-block;
+			    clear:both;
+			    margin: 10px;
+			}
+			.nearsite-message .avatar{
+				float: left;
+			}
+			.nearsite-message .avatar img{
+			    width: 30px;
+			    height: 30px;
+			    border-radius: 50%;
+			}
+			.nearsite-message .content{
+				float: left; 
+			    background: #fff;
+				margin: 0 10px 10px 10px;
+			    padding: 10px;
+			    border-radius:7px;
+			    max-width: 90%;
+			    position: relative;
+			    min-height: 20px;
+			    font-size:15px;
+			}
+			.nearsite-message .content img{
+				width: 100%;
+			}
+			.nearsite-message .triangle{
+				height:0px; 
+			    width:0px; 
+			    border-width:8px; 
+			    border-style:solid;
+			    position: absolute;
+			    top:6px; 
+			    border-color:transparent #fff transparent transparent;    
+			    left:-16px;
+			}
+			.vertbar{
+				width: 1px;
+				height: 50px;
+				background-color: #a2a2a2;
+				margin: -34px 54px -8px;
+			}
+			.mui-bar-tab {
+				position: fixed;
+			    bottom: 0;
+			    display: table;
+			    width: 100%;
+			    height: 50px;
+			    padding: 0;
+			    table-layout: fixed;
+			    border-top: 0;
+			    border-bottom: 0;
+			    -webkit-touch-callout: none;
+			}
+			body,html,#allmap {
+				width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";
+				}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" data-top='0' data-offset='150' data-duration='16' data-scrollby=".mui-scroll-wrapper">
+	        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	        <h1 class="mui-title" style="color: #6CA6CD;font-family: '微软雅黑';">任务详情</h1>
+        </header>
+        <div id="allmap"></div>
+		
+	    <nav id="footerBar" class="mui-bar mui-bar-tab" style="background-color: #FFFFFF;">
+	        <div class="mui-content" style="float: left;background-color: #FFFFFF;">
+		    	<div style="float: left;"><img src="images/user_shop.png" / style="margin-top: 5px;margin-left: 5px; width:70%"></div>
+			    <div style="float: left;width: 40%;">
+					<div style="float: left;padding-top: 10%;font-size: 16px;color: #333333;font-weight: bold;">商户12345</div>
+					<div style="float: left;">
+						<span class="mui-icon iconfont icon-reward" style="font-size: 14px;height:10px; color: #555555;">黄焖鸡米饭丽水店</span>
+					</div>
+			    </div>
+			    <div style="float: right;" style="width: 30%;">
+			    	<button id="ordertaking" style="background-color: #6CA6CD;margin-top: 10%;height: 45px;font-size: 16px;color: #FFFFFF;border-radius: 8px;">接单</button>
+			    	<button id="tel" style="background-color: #DD524D;margin-top: 10%;height: 45px;font-size: 16px;color: #FFFFFF;border-radius: 8px;">联系他</button>
+			    </div>
+	        </div>
+	        <div class="mui-content" id="inf" style="color: #777777;font-size: 18px;float: left;margin-top: 2%;text-align: left;background-color: #FFFFFF;">
+	            <ul style="list-style: none; margin-top: 8px;margin-left: 10px;padding-left: 0;">
+					<li>任务预测：3km-约30分钟</li>			                
+					<li style="margin-top: 10px;">任务路径：学院路  ——莲都区紫金北路 </li>	
+                </ul>
+		    </div>
+		</nav>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wUlWaKb9d6MvtfprNyBIXtQ05bGPPhNI"></script>
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 百度地图API功能
+			var map = new BMap.Map("allmap");
+			map.centerAndZoom(new BMap.Point(119.92957584,28.45629955),15);
+		
+			var myP1 = new BMap.Point(119.93550084,28.47829955);    //起点
+			var myP2 = new BMap.Point(119.91200084,28.46829955);    //终点
+			
+			var driving2 = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});    //驾车实例
+			driving2.search(myP1, myP2);    //显示一条公交线路
+	
+            document.getElementById("ordertaking").addEventListener('tap', function() 
+			{  
+                var btnArray = ['否', '是'];   
+			    mui.confirm('同城跑腿配送', '确认接单？', btnArray, function(e)
+		       {
+			        if (e.index == 1) 
+			        {
+			            mui.toast('接单成功！');		            
+		            	mui.openWindow({			            	
+					    url: 'ordertaking.html', 
+			            id:'ordertaking'
+						});
+			        } 
+			        else 
+			        {
+			            mui.toast('已取消接单');			            
+			        }
+			    });					    
+            })
+            
+            document.getElementById("tel").addEventListener('tap', function() {
+			plus.device.dial("18875856756");
+		});
+	
+		</script>
+	</body>
+</html>
+

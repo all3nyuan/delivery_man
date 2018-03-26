@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>订单动态</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<style>
+			body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+		</style>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wUlWaKb9d6MvtfprNyBIXtQ05bGPPhNI"></script>
+    </head>
+    <body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: #6CA6CD;font-family: '微软雅黑';">订单进度</h1>
+		</header>
+		<div class="mui-card" style="margin-top: 50px;">
+			<div class="mui-card-header" style="font-family: '微软雅黑';height: 50px;color: #6CA6CD;">
+			    <span class="mui-icon iconfont icon-kuaidiyuan" style="font-size: 20px;font-weight: bold;">取件完成 请将物品配送至目的地</span> 
+			</div>
+			<div class="mui-card-header" style="font-family: '微软雅黑';height: 50px;font-size: 18px;color: #999999;">
+			    <span class="mui-icon iconfont icon-dingdan" style="font-size: 18px;">订单实时动态</span> 
+			    <span style="font-size: 16px;color: #6CA6CD;">预计时间:20分钟</span>			    
+			</div>
+		</div>
+		<div id="allmap">
+		</div>
+	
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 百度地图API功能
+			var map = new BMap.Map("allmap");
+			map.centerAndZoom(new BMap.Point(119.92957584,28.45629955),15);
+		
+			var myP1 = new BMap.Point(119.91200084,28.46829955);    //起点
+			var myP2 = new BMap.Point(119.93550084,28.47829955);    //终点
+			var myIcon = new BMap.Icon("http://api.map.baidu.com/img/markers.png", new BMap.Size(23, 25), {    //小车图片
+				offset: new BMap.Size(10, 20),    //相当于CSS精灵
+				imageOffset: new BMap.Size(0, 0 - 10 * 25)    //图片的偏移量。为了是图片底部中心对准坐标点。
+			  });
+			var driving2 = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});    //驾车实例
+			driving2.search(myP1, myP2);    //显示一条公交线路
+		
+			window.run = function (){
+				var driving = new BMap.DrivingRoute(map);    //驾车实例
+				driving.search(myP1, myP2);
+				driving.setSearchCompleteCallback(function(){
+					var pts = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+					var paths = pts.length;    //获得有几个点
+		
+					var carMk = new BMap.Marker(pts[0],{icon:myIcon});
+					map.addOverlay(carMk);
+					i=0;
+					function resetMkPoint(i){
+						carMk.setPosition(pts[i]);
+						if(i < paths){
+							setTimeout(function(){
+								i++;
+								resetMkPoint(i);
+							},1000);
+						}
+					}
+					setTimeout(function(){
+						resetMkPoint(5);
+					},100)
+		
+				});
+			}		
+			setTimeout(function(){
+				run();
+			},2000);
+			window.setTimeout(function(){
+			mui.alert('核对物品收件人和目的地址', '配送任务已完成', function() {
+				mui.toast('任务完成！');
+			    mui.openWindow({
+			    url: 'mission_done.html', 
+			    id:'mission_done'
+			   });
+			})},30000);
+			mui.back = function () {
+                mui.openWindow({
+			    url: 'index.html', 
+			    id:'index'
+			  });
+            }
+		</script>
+    </body>
+	</html>

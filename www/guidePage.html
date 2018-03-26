@@ -1,0 +1,162 @@
+<!doctype html>  
+<html>  
+  
+    <head>  
+        <meta charset="UTF-8">  
+        <title></title>  
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />  
+        <link href="css/mui.min.css" rel="stylesheet" />  
+        <style type="text/css">  
+            body {  
+                background-color: #FFFFFF;  
+            }   
+            .guide-img1 {  
+                width: 100%;
+                height: auto;
+                padding-bottom: 35%;
+            } 
+            .guide-img2 {  
+                width: 100%;
+                margin-top: 15%;
+            }  
+            .guide-img3 {  
+                width: 100%;
+                margin-bottom: 25%;
+            }  
+                
+            #start {  
+                position: absolute;   
+            } 
+            .pro_name{
+								text-align: center;
+								background-color: #FFFFFF;
+								color: #6D6D72;
+								font-family:"幼圆";
+								font-size: 22px;
+								letter-spacing:2px;
+								font-weight: bolder;
+							}
+							.pro_name2{
+								text-align: center;
+								margin-top: 55%;
+								background-color: #FFFFFF;
+								color: #6D6D72;
+								font-family:"幼圆";
+								font-size: 22px;
+								letter-spacing:2px;
+								font-weight: bolder;
+							}
+							.pro_name3{
+								text-align: center;
+								background-color: #FFFFFF;
+								color: #6D6D72;
+								font-family:"幼圆";
+								font-size: 22px;
+								letter-spacing:2px;
+								font-weight: bolder;
+							}
+							.mui-slider-item{
+								height: 100%;
+								width: 100%;								
+							}
+							.login-btn{
+								margin-left: 25%;
+								margin-top: 10%;
+								margin-right: 25%;
+								width: 50%;
+								height: 50px;
+								letter-spacing: 5px;
+								border: 2px solid #6D6D72;
+							  color: #6D6D72;
+								font-size: 24px; 
+								font-family: "微软雅黑";
+								text-align: center;			
+								border-radius: 12px;
+							}
+							
+				</style>  
+			 </head>  
+  
+    <body>  
+        <div class="mui-content">  
+            <div class="mui-slider mui-fullscreen">  
+                <div class="mui-slider-group">  
+                    <div class="mui-slider-item">  
+                        <a href="javascript:;">  
+                            <img class="guide-img1" src="images/time.jpg">                          
+							              <p class="pro_name">碎片时间赚大钱</p>													   
+                        </a>                          
+                    </div>  
+                    <div class="mui-slider-item">  
+                        <a href="javascript:;">  
+                            <img class="guide-img2" src="images/job.png">
+                            <p class="pro_name2">无任何职业门槛</p>
+                        </a>  
+                    </div>  
+                    <div class="mui-slider-item">  
+                        <a href="javascript:;">  
+	                        <img class="guide-img3" src="images/delivery-bg3.jpg">  
+	                        <p class="pro_name3">送的越多 奖励越多</p>
+	                        <button class="mui-btn login-btn" type="button" id="start">立即体验</button>
+                        </a>      
+                    </div>  
+                    	
+                </div>  
+                <div class="mui-slider-indicator">  
+                    <div class="mui-indicator"></div>  
+                    <div class="mui-indicator"></div>  
+                    <div class="mui-indicator"></div>  
+                </div>  
+            </div>  
+        </div>  
+        <script src="js/mui.js"></script>  
+        <script type="text/javascript">  
+            mui.init();  
+            mui.plusReady(function() {  
+                /**  
+                 * 获取系统状态栏高度  
+                 * http://www.html5plus.org/doc/zh_cn/navigator.html#plus.navigator.getStatusbarHeight  
+                 */  
+                var sh = plus.navigator.getStatusbarHeight();  
+                /**  
+                 * 获取设备屏幕高度分辨率以及宽度分辨率  
+                 * http://www.html5plus.org/doc/zh_cn/device.html#plus.screen.resolutionHeight  
+                 * http://www.html5plus.org/doc/zh_cn/device.html#plus.screen.resolutionWidth  
+                 */  
+                var h = plus.screen.resolutionHeight;  
+                var w = plus.screen.resolutionWidth;  
+                /**  
+                 * 设置图片高度，这里图片并不规范；  
+                 * 实际开发中，建议大家制作iphone6plus规格的图片；  
+                 */  
+                var imgs = document.querySelectorAll(".guide-img");  
+                for(var i = 0, len = imgs.length; i < len; i++) {  
+                    imgs[i].style.height = (h) + "px";  
+                    imgs[i].style.width = w + "px";  
+                }  
+                /**  
+                 * 手动关闭启动页  
+                 * http://www.html5plus.org/doc/zh_cn/navigator.html#plus.navigator.closeSplashscreen  
+                 */  
+                plus.navigator.closeSplashscreen();  
+                document.getElementById("start").addEventListener("tap", function() {  
+                    /**  
+                     * 向本地存储中设置launchFlag的值，即启动标识；  
+                     * http://www.html5plus.org/doc/zh_cn/storage.html#plus.storage.setItem  
+                     */  
+                    plus.storage.setItem("launchFlag", "true");  
+                    mui.openWindow({  
+                        url: "entry.html",  
+                        id: "entry",  
+                        extras: {  
+                            mark: "judge" //同样，这里也只是个标识，实际开发中并不用；  
+                        }  
+                    });  
+                });  
+            });  
+            /**  
+             * 重写mui.back()，什么都不执行，反之用户返回到入口页；  
+             */  
+        </script>  
+    </body>   
+</html>  

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>订单列表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<style>
+			body{
+				font-family: "微软雅黑";
+				color: #555555;
+			}
+			.spliter{
+				color: #FFFFFF;
+			}
+			.spliter2{
+				color: #6CA6CD;;
+			}
+		</style>
+	</head>
+	
+	<body>
+        <header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: #6CA6CD;font-family: '微软雅黑';">已完成任务</h1>
+		</header>
+		
+			<div class="mui-card" id="1" style="margin-top: 50px;">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete1">
+						<a class="mui-btn mui-btn-red">删除订单</a>
+					</div>
+					<div class="mui-slider-handle" id="info_food">
+				        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+				        	<ul style="list-style: none; margin: 0;padding: 0;">
+					        	<li style="display:inline-block; color: #333333;">黄焖鸡米饭外卖配送至丽水学院</li>					        	
+					            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:3.00</li>
+				            </ul>
+				        </div>			        
+				        <div id="image_type">
+				        	<img class="mui-media-object mui-pull-left" src="images/delivery-1.gif" 
+				        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+				        </div>				        	
+				        <div id="inf" style="color: #777777;font-size: 13px;">
+				            <ul style="list-style: none; margin-top: 8px;">
+					        	<li>创建时间：2018-3-14</li>
+				                <li>签收时间：2018-3-14</li>			                
+				                <li>丽水莲都 ——— 丽水莲都丽水学院 </li>	
+			               </ul>
+				        </div>
+			        </div>
+		        </li>
+			</div>
+			
+			<div class="mui-card" id="2">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete2">
+						<a class="mui-btn mui-btn-red">删除订单</a>
+					</div>
+					<div class="mui-slider-handle" id="info_s">
+			        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+			        	<ul style="list-style: none; margin: 0;padding: 0;">
+				        	<li style="display:inline-block; color: #333333;">小件快递配送至绿城家园三幢206</li>					        	
+				            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:10.00</li>
+			            </ul>
+			        </div>			        
+			        <div id="image_type">
+			        	<img class="mui-media-object mui-pull-left" src="images/delivery-1.gif" 
+			        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+			        </div>				        	
+			        <div id="inf" style="color: #777777;font-size: 13px;">
+			            <ul style="list-style: none; margin-top: 8px;">
+				        	<li>创建时间：2018-3-13</li>
+			                <li>签收时间：2018-3-13</li>			                
+			                <li>丽水莲都 ——— 丽水莲都绿城家园三幢206 </li>	
+		               </ul>
+			        </div>
+			        </div>
+		        </li>
+		    </div>
+		    
+		    <div class="mui-card" id="3">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete3">
+						<a class="mui-btn mui-btn-red">删除订单</a>
+					</div>
+					<div class="mui-slider-handle" id="info_big">
+			        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+			        	<ul style="list-style: none; margin: 0;padding: 0;">
+				        	<li style="display:inline-block; color: #333333;">大件物流任务配送至丽水青田</li>					        	
+				            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:30.00</li>
+			            </ul>
+			        </div>			        
+			        <div id="image_type">
+			        	<img class="mui-media-object mui-pull-left" src="images/delivery-2.gif" 
+			        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+			        </div>				        	
+			        <div id="inf" style="color: #777777;font-size: 13px;">
+			            <ul style="list-style: none; margin-top: 8px;">
+				        	<li>创建时间：2018-3-12</li>
+			                <li>签收时间：2018-3-12</li>			                
+			                <li>丽水莲都 ——— 丽水莲都丽水青田</li>	
+		               </ul>
+			        </div>
+			        </div>
+		        </li>
+			</div>
+			
+			<div class="mui-card" id="4">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete4">
+						<a class="mui-btn mui-btn-red">删除订单</a>
+					</div>
+					<div class="mui-slider-handle" id="info_food2">   
+			        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+			        	<ul style="list-style: none; margin: 0;padding: 0;">
+				        	<li style="display:inline-block; color: #333333;">黄焖鸡米饭外卖配送至丽水学院</li>					        	
+				            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:3.00</li>
+			            </ul>
+			        </div>			        
+			        <div id="image_type">
+			        	<img class="mui-media-object mui-pull-left" src="images/delivery-1.gif" 
+			        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+			        </div>				        	
+			        <div id="inf" style="color: #777777;font-size: 13px;">
+			            <ul style="list-style: none; margin-top: 8px;">
+				        	<li>创建时间：2018-3-12</li>
+			                <li>签收时间：2018-3-12</li>			                
+			                <li>丽水莲都 ——— 丽水莲都丽水学院 </li>	
+		               </ul>
+			        </div>
+			        </div>
+		       </li>
+			</div>
+			
+			<div class="mui-card" id="5">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete5">
+						<a class="mui-btn mui-btn-red">删除订单</a>
+					</div>
+					<div class="mui-slider-handle" id="info_s2">  
+			        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+			        	<ul style="list-style: none; margin: 0;padding: 0;">
+				        	<li style="display:inline-block; color: #333333;">小件快递配送至绿城家园三幢206</li>					        	
+				            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:10.00</li>
+			            </ul>
+			        </div>			        
+			        <div id="image_type">
+			        	<img class="mui-media-object mui-pull-left" src="images/delivery-1.gif" 
+			        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+			        </div>				        	
+			        <div id="inf" style="color: #777777;font-size: 13px;">
+			            <ul style="list-style: none; margin-top: 8px;">
+				        	<li>创建时间：2018-3-12</li>
+			                <li>签收时间：2018-3-12</li>			                
+			                <li>丽水莲都 ——— 丽水莲都绿城家园三幢206 </li>	
+		               </ul>
+			        </div>
+			        </div>
+		        </li>
+		    </div>
+		    
+		    <div class="mui-card" id="6">
+				<li class="mui-table-view-cell" style="list-style: none;">
+					<div class="mui-slider-right mui-disabled" id="delete6">
+						<a class="mui-btn mui-btn-red">删除订单</a>
+					</div>
+					<div class="mui-slider-handle" id="info_big2">
+			        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+			        	<ul style="list-style: none; margin: 0;padding: 0;">
+				        	<li style="display:inline-block; color: #333333;">大件物流任务配送至丽水青田</li>					        	
+				            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:30.00</li>
+			            </ul>
+			        </div>			        
+			        <div id="image_type">
+			        	<img class="mui-media-object mui-pull-left" src="images/delivery-2.gif" 
+			        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+			        </div>				        	
+			        <div id="inf" style="color: #777777;font-size: 13px;">
+			            <ul style="list-style: none; margin-top: 8px;">
+				        	<li>创建时间：2018-3-12</li>
+			                <li>签收时间：2018-3-12</li>			                
+			                <li>丽水莲都 ——— 丽水莲都丽水青田</li>	
+		               </ul>
+			        </div>
+			        </div>
+			   </li>
+			</div>
+		</div>
+	
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>       
+			document.getElementById('info_food').addEventListener('tap', function() {
+			  //打开关于页面
+			  mui.openWindow({
+			    url: 'info_food.html', 
+			    id:'info_food'
+			  });
+			});
+			document.getElementById('info_s').addEventListener('tap', function() {
+			  //打开关于页面
+			  mui.openWindow({
+			    url: 'info_s.html', 
+			    id:'info_s'
+			  });
+			});
+			document.getElementById('info_big').addEventListener('tap', function() {
+			  //打开关于页面
+			  mui.openWindow({
+			    url: 'info_big.html', 
+			    id:'info_big'
+			  });
+			});
+			document.getElementById('info_food2').addEventListener('tap', function() {
+			  //打开关于页面
+			  mui.openWindow({
+			    url: 'info_food.html', 
+			    id:'info_food'
+			  });
+			});
+			document.getElementById('info_s2').addEventListener('tap', function() {
+			  //打开关于页面
+			  mui.openWindow({
+			    url: 'info_s.html', 
+			    id:'info_s'
+			  });
+			});
+			document.getElementById('info_big2').addEventListener('tap', function() {
+			  //打开关于页面
+			  mui.openWindow({
+			    url: 'info_big.html', 
+			    id:'info_big'
+			  });
+			});
+					
+			document.getElementById('delete1').addEventListener('tap', function() {
+		      var btnArray = ['否', '是']; 
+			  var delete_div = document.getElementById("1");
+		      mui.confirm('删除订单可以在历史订单找回', '确认删除订单', btnArray, function(e){
+		        if (e.index == 1) 
+		        {   
+			        delete_div .classList.add("mui-hidden");
+		            mui.toast('删除成功！');		            
+		        } 
+		     });					    
+           })
+			document.getElementById('delete2').addEventListener('tap', function() {
+		      var btnArray = ['否', '是']; 
+			  var delete_div = document.getElementById("2");
+		      mui.confirm('删除订单可以在历史订单找回', '确认删除订单', btnArray, function(e){
+		        if (e.index == 1) 
+		        {   
+			        delete_div .classList.add("mui-hidden");
+		            mui.toast('删除成功！');		            
+		        } 
+		     });					    
+           })
+			document.getElementById('delete3').addEventListener('tap', function() {
+		      var btnArray = ['否', '是']; 
+			  var delete_div = document.getElementById("3");
+		      mui.confirm('删除订单可以在历史订单找回', '确认删除订单', btnArray, function(e){
+		        if (e.index == 1) 
+		        {   
+			        delete_div .classList.add("mui-hidden");
+		            mui.toast('删除成功！');		            
+		        } 
+		     });					    
+           })
+			document.getElementById('delete4').addEventListener('tap', function() {
+		      var btnArray = ['否', '是']; 
+			  var delete_div = document.getElementById("4");
+		      mui.confirm('删除订单可以在历史订单找回', '确认删除订单', btnArray, function(e){
+		        if (e.index == 1) 
+		        {   
+			        delete_div .classList.add("mui-hidden");
+		            mui.toast('删除成功！');		            
+		        } 
+		     });					    
+           })
+			document.getElementById('delete5').addEventListener('tap', function() {
+		      var btnArray = ['否', '是']; 
+			  var delete_div = document.getElementById("5");
+		      mui.confirm('删除订单可以在历史订单找回', '确认删除订单', btnArray, function(e){
+		        if (e.index == 1) 
+		        {   
+			        delete_div .classList.add("mui-hidden");
+		            mui.toast('删除成功！');		            
+		        } 
+		     });					    
+           })
+	    </script>
+	</body>
+</html>

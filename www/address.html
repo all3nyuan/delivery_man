@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的地址</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<style>
+        body{
+        	font-family: "微软雅黑";
+        }
+        </style>
+	</head>
+	
+	<body id="address">
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: #6CA6CD;font-family: '微软雅黑';">我的地址</h1>
+		</header>
+	    <div class="mui-card-header" style="font-size: 18px; margin-top: 50px;">
+	    	<span class="mui-icon iconfont icon-dizhi" style="color: #6D6D72;font-size: 20px;">我的地址</span>
+	    </div>	     
+		<div class="mui-card-content">
+			<div class="mui-input-row">						
+                 <div class="mui-card" style="width: 94%; height: 90px;">
+                 	<p style="margin-top: 5%;margin-left: 5%; font-size: 20px; font-weight: bold;">浙江省丽水市莲都区丽水学院</p>
+                 	<p style="margin-left: 5%; font-size: 20px;">跑腿人123456 18666666666</p>
+                 </div>
+			</div>
+		</div>											
+		<div class="mui-content-padded">
+			<button id='add_address' class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #37AEDF;border: none; height:50px;">					
+			    <span class="mui-icon iconfont icon-icon--1"></span>添加地址
+			</button>
+		</div>
+		   
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			document.getElementById('add_address').addEventListener('tap', function() {
+				mui.openWindow({
+				    url: 'add_address.html', 
+				    id:'add_address'
+				});
+			});
+			mui.plusReady(function(){
+				var self = plus.webview.currentWebview();
+				name = self.name;
+				console.log(name);
+			})
+		</script>
+	</body>
+</html>

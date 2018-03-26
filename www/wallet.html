@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的钱包</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<style>
+        body{
+        	font-family: "微软雅黑";
+        }
+        </style>
+	</head>
+	
+	<body id="phone">
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: #6CA6CD;font-family: '微软雅黑';">我的钱包</h1>
+		</header>
+		    <div class="mui-card-header" style="font-size: 18px; margin-top: 40px;">
+		    	<span class="mui-icon iconfont icon-yue" style="color: #6D6D72;font-size: 20px;">我的余额</span>
+		    </div>	     
+			<div class="mui-card-content">
+                <div class="mui-card" style="height:60px"> 
+                	<p style="float: right; margin-right: 5%;font-size: 30px;line-height: 2;color: #EC971F;">￥399.00</p>
+                </div>
+			</div>											
+			<div class="mui-content-padded">
+				<button type="button" data-loading-text="提现中" class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #37AEDF;border: none; height:50px;">提现</button>
+				<button type="button" data-loading-text="充值中"  class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #37AEDF;border: none; height:50px;">充值</button>
+			</div>   
+
+		    <div class="mui-card-header" style="font-size: 18px;">
+		    	<span class="mui-icon iconfont icon-yinxingqia" style="color: #6D6D72;font-size: 20px;">我的银行卡</span>
+		    </div>	     
+				<div class="mui-card-content">
+	                <div class="mui-card" style="height:140px;background-color: #ce3232;border-radius: 10px;"> 
+	                	<p style="float: left; margin-left: 5%;margin-top: 6%;color: #FFFFFF;">
+	                		<span class="mui-icon iconfont icon-gongshangyinxing" style="font-size: 30px;">中国工商银行</span></p>
+	                	<p style="float: right; margin-right: 5%;font-size: 30px;line-height: 3;color: #FFFFFF;">6212 0003 4568 564</p>
+	                </div>
+				</div>											
+			<div class="mui-content-padded">
+				<button id='mission_send' data-loading-text="加载中" class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #37AEDF;border: none; height:50px;">					
+				    <span class="mui-icon iconfont icon-icon--1"></span>添加银行卡
+				</button>
+			</div>
+		</div>    
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			mui(document.body).on('tap', '.mui-btn', function(e) {
+			    mui(this).button('loading');
+			    setTimeout(function() {
+			        mui(this).button('reset');
+			    }.bind(this), 2000);
+			});
+		</script>
+	</body>
+</html>

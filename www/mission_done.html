@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>订单已完成</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<style>
+        body{
+        	font-family: "微软雅黑";
+        }
+       
+		.mui-icon-star{
+			color: #B5B5B5;
+			font-size: 30px;
+		}
+    	.mui-icon-star-filled{
+    		color: #FFB400;
+    		font-size: 30px;
+    	} 
+   		ul{
+   			padding: 10px 0px;
+   		}
+    	li{
+    		display: -webkit-box;
+    		width: 100%;
+    		padding: 0 10px;
+    	} 
+    	li a{
+    		-webkit-box-flex: 1;
+    		display: block;
+    		font-size: 18px;
+    		color: #555555;
+    		margin-left: 3%;
+    		letter-spacing: 3px;
+    		line-height: 1.6;
+    	}
+    	li div{
+    		-webkit-box-flex: 2;
+    		text-align: right;
+    	}
+    	#info{
+    		padding: 20px 10px;
+    	}
+		
+        </style>
+	</head>
+	
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" style="color: #6CA6CD;font-family: '微软雅黑';">订单已完成</h1>
+		</header>
+		<div class="mui-content">	     			
+			<div class="mui-card">
+				<div class="mui-card-header" style="width: auto;color: #333333;">
+					<img src="images/mission.png" style="width: 100%;height: 100%;"/>
+											
+				</div>
+				<div class="mui-card-content" style="margin-top: 8px; text-align: center;font-size: 16px;color: #6CA6CD;">
+				    <span class="mui-icon iconfont icon-receipt"><label style="margin-left: 5px;font-family: '微软雅黑';font-weight: bold;font-size: 18px;">“黄焖鸡米饭外卖配送订单”</label></span>
+				    <p style="margin-right: 5%;font-size: 22px;line-height: 2;color: #EC971F;">￥3.00</p>
+				</div>
+			    <div class="mui-card-content" style="color: #555555;">	 
+			
+					
+				</div>
+				<div class="mui-card-footer">
+					<button id='confirm' class="mui-btn" style="width: 100%; font-size: 18px;letter-spacing: 5px; background-color: #6CA6CD;color: #FFFFFF; border: none; height:40px;">					
+					  确认
+					</button>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		    
+			    document.getElementById("confirm").addEventListener('tap', function() 
+				{  
+	                var btnArray = ['否', '是'];   
+				    mui.confirm('工资将发放到您的钱包余额中', '任务完成，奖金到手', btnArray, function(e)
+			       {
+				        if (e.index == 1) 
+				        {
+				            mui.toast('任务已完成！');		            
+			            	mui.openWindow({			            	
+						    url: 'index.html', 
+						    id:'index.'
+							});
+				        } 
+				        else 
+				        {
+				           		            
+				        }
+				    });					    
+                })
+		    
+			mui.back = function () {
+                mui.openWindow({
+			    url: 'index.html', 
+			    id:'index'
+			  });
+           }    
+		</script>
+	</body>
+</html>

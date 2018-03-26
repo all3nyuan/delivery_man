@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>主页</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/cropper.css" />
+		<link rel="stylesheet" href="css/cropper.min.css" />
+		<link rel="stylesheet" href="css/mui.cropper.css" />
+		<style type="text/css">
+			body{
+				font-family: "微软雅黑";
+			}
+		    .mui-table-view{
+		    	border-collapse: collapse;
+                border-spacing: 0;
+                margin: 0;
+                padding: 0;
+                border: none;
+		    }
+		    .color{
+		    	color: #555555;
+		    	text-decoration: none;
+		    	margin-left: 2px;
+		    }
+		    .avatar img{
+				width: 80px;
+				height: 80px;
+				display: block;
+				margin: auto;
+				cursor: pointer;
+				border-radius: 45px;
+			}
+			.name{
+				float: left; 
+				text-align: left; 
+				color: #6CA6CD; 				 
+				margin-top: 8%;
+			}
+			.name p{
+				font-size: 20px;
+				margin-bottom: 6%;
+				color: #DDDDDD;
+			}
+			.spliter {
+				color: #EFEFF4;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-off-canvas-wrap mui-draggable mui-scalable">
+		  <!-- 菜单容器 -->
+		  <aside class="mui-off-canvas-left">
+		    <div class="mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		        <!-- 菜单具体展示内容 -->
+		        <div class="mui-card" style="padding-top: 2%;padding-bottom: 2%;background-color: #323232;margin-top: 60px;">
+					<div class="mui-content-padded avatar" style="float: left;margin-left: 5%;">
+					    <div style="">
+					    	<a href="#cropper-sheet">
+					    	<img id="avatar" src="images/delivery-man.png">
+					    	</a>
+					    </div>		     	 	
+					</div>
+					<div class="name">
+				    	<p>跑腿人123456</p>
+				    	<p><span class="mui-badge" style="background-color: #F0AD4E;color: #FFFFFF;">
+				    		    <span class="mui-icon iconfont icon-reward" style="font-size: 12px;">认证跑腿精英</span>
+				    		</span>    
+				    	</p>
+					</div>
+			    </div>	
+		
+			    <div class="mui-card">
+				    <div class="mui-card-content" style="background-color: #323232;text-align: center;float: left;width: 100%;">           
+			            <div id="bankcard" style="float: left;width: 45%;height:50px;color: #2AC845;font-size: 15px;line-height: 3.2;">
+			            	<span class="mui-icon iconfont icon-queren" style="margin-right: 3px;"></span>开工
+			            </div>
+			            <div style="float: left;width: 1%;line-height: 3.2;margin-left: 5%;margin-right: 3%;">
+			            	<span class="spliter" style="color: #888888;">|</span>
+			            </div>
+			            <div id="evaluate" style="float: left;width: 45%;height:50px;color: #FFFFFF;font-size: 15px;line-height: 3.2;">
+			            	<span class="mui-icon iconfont icon-guanbi" style="margin-right: 3px;"></span>收工
+			            </div>
+				    </div>
+		        </div>
+		        
+			    <div class="mui-card" style="background-color: #323232;">
+					<ul class="mui-table-view" style="background-color: #323232;color: #FFFFFF;">
+						<li class="mui-table-view-cell" id="message">
+							<span class="mui-icon iconfont icon-icon--">
+						    <a class="mui-navigate-right color" style="font-family: '微软雅黑';color: #FFFFFF;">我的消息</a></span>
+						</li>
+				   </ul>
+				</div>
+				
+				<div class="mui-card" style="background-color: #323232;color: #FFFFFF;">
+					<ul class="mui-table-view" style="background-color: #323232;color: #FFFFFF;list-style: none;">
+						<li class="mui-table-view-cell" id="wallet">
+							<span class="mui-icon iconfont icon-yue">
+						    <a class="mui-navigate-right color" style="font-family: '微软雅黑';color: #FFFFFF;">我的钱包</a></span>
+						</li>
+						<li class="mui-table-view-cell" id="finished_mission">
+							<span class="mui-icon iconfont icon-dingdan">
+						    <a class="mui-navigate-right color"style="font-family: '微软雅黑';color: #FFFFFF;">已完成任务</a></span>
+						</li>
+						<li class="mui-table-view-cell" id="mine_inf" style="border: none;">
+							<span class="mui-icon iconfont icon-wode">
+						    <a class="mui-navigate-right color" style="font-family: '微软雅黑';color: #FFFFFF;">个人信息</a></span>
+						</li>
+						<li class="mui-table-view-cell" id="address">
+							<span class="mui-icon iconfont icon-dizhi">
+						    <a class="mui-navigate-right color" style="font-family: '微软雅黑';color: #FFFFFF;">我的地址</a></span>
+						</li>
+						<li class="mui-table-view-cell" id="helpcenter">
+							<span class="mui-icon iconfont icon-fuwu">
+						    <a class="mui-navigate-right color"style="font-family: '微软雅黑';color: #FFFFFF;">服务中心</a></span>
+						</li>						
+			       </ul> 
+			    </div>
+		    
+			    <div class="mui-card" style="background-color: #323232;color: #FFFFFF;">
+					<ul class="mui-table-view" id="setting" style="background-color: #323232;color: #FFFFFF;">
+						<li class="mui-table-view-cell" id="message">
+							<span class="mui-icon iconfont icon-shezhi">
+						    <a class="mui-navigate-right color" style="font-family: '微软雅黑';color: #FFFFFF;">设置</a></span>
+						</li>
+				   </ul>
+				</div>
+				
+			    <div class="mui-content" style="background-color: #323232;color: #FFFFFF;height: 40px;width: 92%;margin-left: 4%;margin-right: 4%;">		
+					<button id="exit" class="mui-btn" style="width: 100%; background-color: #DD524D;margin-top: 10px;color: #FFFFFF;border: none;height: 40px;font-family: '微软雅黑';font-size: 16px;letter-spacing: 3px;">退出登录</button>		    
+				</div>
+			
+		      
+		      </div>
+		    </div>
+		  </aside>
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap">
+		    <!-- 主页面标题 -->
+		    <header class="mui-bar mui-bar-nav">
+		      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+		      <h1 class="mui-title">任务列表</h1>
+		      <button id='reward' class=" mui-pull-right mui-btn-link" style="color: #F0AD4E;"><span class="mui-icon iconfont icon-jiangli"></span></button>
+		    </header>
+		    <div class="mui-content mui-scroll-wrapper">
+		        <div class="mui-scroll">
+		        	<div class="mui-card" id="mission1">
+						<li class="mui-table-view-cell" style="list-style: none;">							
+					        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+					        	<ul style="list-style: none; margin: 0;padding: 0;">
+						        	<li style="display:inline-block; color: #333333;">黄焖鸡米饭外卖配送至莲都紫金路</li>					        	
+						            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:3.00</li>
+					            </ul>
+					        </div>			        
+					        <div id="image_type">
+					        	<img class="mui-media-object mui-pull-left" src="images/delivery-1.gif" 
+					        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+					        </div>				        	
+					        <div id="inf" style="color: #777777;font-size: 13px;">
+					            <ul style="list-style: none; margin-top: 8px;">
+						        	<li>发布时间：2018-3-14</li>
+					                <li>任务预测：3km-约30分钟</li>			                
+					                <li>莲都区西城广场 ——— 莲都区紫金北路 </li>	
+				               </ul>
+					        </div> 
+				       </li>
+		        	</div>
+		        	
+					<div class="mui-card" id="mission2">
+						<li class="mui-table-view-cell" style="list-style: none;">
+					        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+					        	<ul style="list-style: none; margin: 0;padding: 0;">
+						        	<li style="display:inline-block; color: #333333;">小件快递配送至绿城家园三幢206</li>					        	
+						            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:10.00</li>
+					            </ul>
+					        </div>			        
+					        <div id="image_type">
+					        	<img class="mui-media-object mui-pull-left" src="images/delivery-1.gif" 
+					        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+					        </div>				        	
+					        <div id="inf" style="color: #777777;font-size: 13px;">
+					            <ul style="list-style: none; margin-top: 8px;">
+						        	<li>创建时间：2018-3-13</li>
+					                <li>任务预测：5km-约40分钟</li>				                
+					                <li>丽水莲都 ——— 丽水莲都绿城家园三幢206 </li>	
+				               </ul>
+					        </div>
+				        </li>
+				    </div>
+			    
+				    <div class="mui-card" id="mission3">
+						<li class="mui-table-view-cell" style="list-style: none;">
+					        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+					        	<ul style="list-style: none; margin: 0;padding: 0;">
+						        	<li style="display:inline-block; color: #333333;">大件物流任务配送至丽水青田</li>					        	
+						            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:30.00</li>
+					            </ul>
+					        </div>			        
+					        <div id="image_type">
+					        	<img class="mui-media-object mui-pull-left" src="images/delivery-2.gif" 
+					        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+					        </div>				        	
+					        <div id="inf" style="color: #777777;font-size: 13px;">
+					            <ul style="list-style: none; margin-top: 8px;">
+						        	<li>创建时间：2018-3-12</li>
+					                <li>任务预测：40km-约60分钟</li>				                
+					                <li>丽水莲都 ——— 丽水莲都丽水青田</li>	
+				               </ul>
+					        </div>
+				        </li>
+					</div>
+				    <div class="mui-card" id="mission4">
+						<li class="mui-table-view-cell" style="list-style: none;">
+					        <div id="title" style="margin-left: 8px;margin-top: 10px;">
+					        	<ul style="list-style: none; margin: 0;padding: 0;">
+						        	<li style="display:inline-block; color: #333333;">大件物流任务配送至丽水缙云</li>					        	
+						            <li style="display:inline-block; float: right;margin-right: 5px; color: #EC971F;text-align: left;font-size: 16px;">￥:30.00</li>
+					            </ul>
+					        </div>			        
+					        <div id="image_type">
+					        	<img class="mui-media-object mui-pull-left" src="images/delivery-2.gif" 
+					        		style="margin:10px;width: 15%; margin-bottom: 15px;">
+					        </div>				        	
+					        <div id="inf" style="color: #777777;font-size: 13px;">
+					            <ul style="list-style: none; margin-top: 8px;">
+						        	<li>创建时间：2018-3-12</li>
+					                <li>任务预测：75km-约80分钟</li>			                
+					                <li>丽水莲都 ——— 丽水莲都丽水缙云</li>	
+				               </ul>
+					        </div>
+				        </li>
+					</div>						
+		        </div>
+		    </div>  
+		  </div>
+		</div>
+	<script src="js/mui.min.js"></script>
+	<script src="js/cropper.min.js"></script>
+	<script src="js/mui.cropper.js"></script>
+	<script type="text/javascript">
+        document.getElementById('avatar').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'avatar.html', 
+		    id:'avatar'
+		  });
+		});
+		document.getElementById('mine_inf').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'mine_inf.html', 
+		    id:'mine_inf'
+		  });
+		});
+		document.getElementById('wallet').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'wallet.html', 
+		    id:'wallet'
+		  });
+		});
+	    document.getElementById('finished_mission').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'finished_mission.html', 
+		    id:'finished_mission'
+		  });
+		});
+		document.getElementById('message').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'message.html', 
+		    id:'message'
+		  });
+		});
+		
+		document.getElementById('address').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'address.html', 
+		    id:'address'
+		  });
+		});
+		document.getElementById('helpcenter').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'helpcenter.html', 
+		    id:'helpcenter'
+		  });
+		});	
+		document.getElementById('setting').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'setting.html', 
+		    id:'setting'
+		  });
+		});
+	    document.getElementById("exit").addEventListener('tap', function() 
+		{  
+            var btnArray = ['否', '是'];   
+		    mui.confirm('同城跑腿配送', '确认退出当前账号', btnArray, function(e)
+	       {
+		        if (e.index == 1) 
+		        {
+		            mui.toast('已注销');		            
+	            	mui.openWindow({			            	
+				    url: 'login_runner.html', 
+				    id:'login_runner'
+					});
+		        } 
+		    });					    
+        })
+     
+		document.getElementById('mission1').addEventListener('tap', function() {
+		  //打开关于页面
+		  mui.openWindow({
+		    url: 'info_mission.html', 
+		    id:'info_mission'
+		  });
+		});
+		document.getElementById('mission2').addEventListener('tap', function() {
+		  //打开关于页面
+		  mui.openWindow({
+		    url: 'info_mission.html', 
+		    id:'info_mission'
+		  });
+		});
+		document.getElementById('mission3').addEventListener('tap', function() {
+		  //打开关于页面
+		  mui.openWindow({
+		    url: 'info_mission.html', 
+		    id:'info_mission'
+		  });
+		});
+
+		document.getElementById('mission4').addEventListener('tap', function() {
+		  //打开关于页面
+		  mui.openWindow({
+		    url: 'info_mission.html', 
+		    id:'info_mission'
+		  });
+		});
+				
+       document.getElementById('reward').addEventListener('tap', function() {
+		  mui.openWindow({
+		    url: 'reward.html', 
+		    id:'reward'
+		  });
+		});
+		
+		(function($, doc) {
+			$.init();
+			$.plusReady(function() {
+				var settingPage = $.preload({
+					"id": 'reward',
+					"url": 'reward.html'
+				});
+				//设置
+				var settingButton = doc.getElementById('reward');
+				//settingButton.style.display = settings.autoLogin ? 'block' : 'none';
+				settingButton.addEventListener('tap', function(event) {
+					$.openWindow({
+						id: 'reward',
+						show: {
+							aniShow: 'pop-in'
+						},
+						styles: {
+							popGesture: 'hide'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+				$.oldBack = mui.back;
+				var backButtonPress = 0;
+				$.back = function(event) {
+					backButtonPress++;
+					if (backButtonPress > 1) {
+						plus.runtime.quit();
+					} else {
+						plus.nativeUI.toast('再按一次退出应用');
+					}
+					setTimeout(function() {
+						backButtonPress = 0;
+					}, 1000);
+					return false;
+				};
+			});
+		}(mui, document));	
+	</script>
+	</body>
+
+</html>

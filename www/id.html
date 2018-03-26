@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>上传身份证</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css"/>
+		<link rel="stylesheet" href="css/cropper.min.css" />
+		<link rel="stylesheet" href="css/mui.cropper.css"/ >
+		<style>
+			body{
+				font-family: "微软雅黑";
+			}
+			.avatar img{
+				width: 240px;
+				display: block;
+				margin: 20px auto;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"style="color: #555555;"></a>
+			<h1 class="mui-title"><span class="mui-icon iconfont icon-credentials_icon" style="font-size: 20px;font-family: '微软雅黑';">上传身份证</span></h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content" style="text-align: center;color: #888888;margin-top: 5%;">点击示例图片上传身份证信息面</div>
+			<div class="avatar">
+	            <a href="#cropper-sheet">
+	            	<img id="avatar" src="images/id1.png"/>
+	            </a>
+	       	</div>
+	       	<div class="mui-content" style="text-align: center;color: #888888;margin-top: 5%;">点击示例图片上传身份证国徽面</div>
+			<div class="avatar">
+	            <a href="#cropper-sheet">
+	            	<img id="avatar" src="images/id2.png"/>
+	            </a>
+	       	</div>
+	       	<div class="mui-content-padded" style="font-family: '微软雅黑';">
+				<button id='examine' type="button" data-loading-text="提交审核中" class="mui-btn mui-btn-block mui-btn-primary" style="background-color: #6CA6CD;border: none;border-radius: 12px;width: 90%; margin-left: 5%;margin-right: 5%;margin-top: 10%;">提交审核</button>
+			</div>
+			
+			<!--选择头像-->
+			<div id="cropper-sheet" class="mui-popover mui-popover-action mui-popover-bottom ">
+			    <!-- 可选择菜单 -->
+			    <ul class="mui-table-view">
+			      	<li class="mui-table-view-cell">
+			        	<a data-type="camera">拍照</a>
+			      	</li>
+			      	<li class="mui-table-view-cell">
+			        	<a data-type="gallery">选择相册</a>
+			      	</li>
+			    </ul>
+			    <!-- 取消菜单 -->
+			    <ul class="mui-table-view">
+			      	<li class="mui-table-view-cell">
+			        	<a href="#cropper-sheet"><b style="color: #ff0000;">取消</b></a>
+			      	</li>
+			    </ul>
+			</div>	
+			
+			<div class="mui-cropper-modal mui-modal">
+				<div class="cropper-image-container">
+					<img id="image" src="" />
+				</div>
+				<div class="cropper-btn-group">
+					<span class="cropper-cancel">取消</span>
+					<span class="cropper-ok">裁剪</span>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/cropper.min.js"></script>
+		<script src="js/mui.cropper.js"></script>
+		<script type="text/javascript">
+			mui('#cropper-sheet').on('tap','.mui-table-view-cell > a',function(){
+				var type = this.getAttribute('data-type');
+				switch (type){
+					case 'camera':
+						mui.captureImage(function(path){
+							var fullPath = mui.getLocalFileURL(path);
+							handleInit(fullPath);
+						})
+						break;
+					case 'gallery':
+						mui.pickGallery(function(path){
+							handleInit(path);
+						})
+						break;
+					default:
+						break;
+				}
+			}) 
+			
+			function handleInit(path){
+				mui('#cropper-sheet').popover('toggle');
+				mui.cropper.show(path, function(data){
+					mui.saveImage(data, '_doc/cropper.jpg', function(path){
+						console.log(path);
+						document.getElementById("avatar").src = path;
+					})
+				});
+			}
+			
+			mui(document.body).on('tap', '.mui-btn', function(e) {
+			    mui(this).button('loading');
+			    setTimeout(function() {
+			        mui(this).button('reset');
+			    }.bind(this), 2000);
+			});
+			
+			document.getElementById('examine').addEventListener('tap', function() {
+			  mui.toast('审核成功');
+			  mui.openWindow({
+			  	
+			    url: 'login_runner.html', 
+			    id:'login_runner'
+			  });
+		    });
+
+		</script>
+	</body>
+</html> 
